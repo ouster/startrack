@@ -156,20 +156,26 @@ HOST: http://startrack.com.au/shipping
 - SpecialHandlingRequired: boolean
 
 
-### DeliveryDetails
-- ReceiverSuburb: string
-- ReceiverState: string
-- ReceiverPostCode: string
+### ReceiverDeliveryDetails
+- receiverSuburb: string
+- receiverState: string
+- receiverPostCode: string
+
+### SenderDeliveryDetails
 - SenderSuburb: string
 - SenderPostCode: string
 - SenderState: string
+
+### DeliveryDetails
+- receiverDeliveryDetails: (ReceiverDeliveryDetails)
+- senderDeliveryDetails: (SenderDeliveryDetails)
 - serviceCode: string
 - accountNumber: string
 - weight: decimal
 - volume: decimal
 - includeFuelSurcharge: boolean
 - includeSecuritySurcharge: boolean
-- includeRiskWarranty: bool
+- includeRiskWarranty: boolean
 - riskWarrantyValue: decimal
 - arrivalDate: string
 - despatchDate: string
