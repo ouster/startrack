@@ -1,0 +1,195 @@
+FORMAT: 1A
+HOST: http://startrack.com.au/shipping
+
+# startrack
+
+## Data Structures 
+
+### Consignment
+- consignmentId: "Z000001"
+- consignmentStatus: string
+- consignmentType: string
+- serviceCode: string
+- despatchDate: `2016-01-01T00:00:00`
+- etaData: `2016-01-12T00:00:00`
+- despatchId: string
+- lastStatusDateTime: `2016-01-12T00:00:00`
+- specialInstructions: string
+- goodsDescription: string
+- carrierCode: string
+- despatchDepot: string
+- despatchNotification: string
+- emailNotifications: boolean
+- smsNotifications: boolean
+- receiver: string
+- sender: string
+- references: string
+- trackingEvents: array(object)
+- images: array(object)
+- containsDangerousGoods: boolean
+- dangerousGoods: string
+- lineItems: array(object)
+
+### CardLeftOptions
+- responseType: string
+- responseCode: string
+- responseMessage: string
+- accountName: string
+- allowRedeliver: boolean
+- allowRedirect: boolean
+- allowATL: boolean
+- allowDepotCollection: boolean
+
+### Contact
+- phone: string
+- email: string
+
+### ContactDetails
+- claimantName: string
+- claimantPhone: string
+- claimantFax: string
+- claimantEmail: string
+- claimantAccount: string
+
+### Receiver
+- name: string
+- companyname: string
+- address1: string
+- address2: string
+- suburb: string
+- state: string
+- postcode: integer
+
+### WantsTo
+- redeliver: boolean
+- redirect: boolean
+
+### CardLeft 
+- consignment: string, required
+- barcode: string
+- contact: (Contact)
+- receiver: (Receiver)
+- redeliveryDate: string
+- requestedByName: string
+- ATL: boolean
+- ATLLocationParcel: string
+- wantsTo: (WantsTo)
+
+### Response
+- responseType: string
+- responseCode: integer
+- responseMessage: string
+
+### BookingResponse
+- responseType: string
+- responseCode: string
+- responseMessage: string
+- favouriteName: string
+- bookingDetails: string
+- pickupDetails: string
+- instructionDetails: string
+- freightItems: object
+- freightDetails: string
+
+### ClaimItem
+- name: string
+- consignmentId: string
+
+### LateDeliveryClaim
+- claimItem: (ClaimItem)
+- contactDetail: (ContactDetails)
+
+
+
+## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
+A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
+
++ Parameters
+    + id (required, string, `Z000001,Z000002`) ... String `id` of the Consignments to retrieve.
+    + serviceType (required,integer) 
+    
+
+    
+### List Consignments by consignment ids [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Consignment])
+  
+
+## Consignments By Reference Collection [/v1/consignmentsbyreferenceid/{id1%2cid2%2cidn}{?serviceType}]
+A comma separated list of `id` can be passed as parameter to fetch a list of Consignments by reference Id
+
++ Parameters
+    + id (required, string, `ABCD1234,XYX1234`) ... String reference `id` of the Consignments to retrieve.
+    + serviceType (required,integer) 
+
+    
+### List Consignments by reference ids [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Consignment])
+
+<!-- Note there is no GET /v1/consignment/{id} -->
+
+## Card Left Options [/v1/cardleftoptions/id]
+Object containing the options allowed when a client has been carded
+
++ Parameters
+    + id (required, string, `barcode or consignment id`)
+
+
+### Card Left Options [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[CardLeftOptions])
+    
+
+    
+## Card Left [/v1/cardleft]
+Object containing the options allowed when a customer has been carded
+
+### Card Left [POST]
+Allow client to create a action based on card left options
+
++ Request (application/json)
+    + Attributes (CardLeft)   
+            
++ Response 200 (application/json) 
+    + Attributes (Response) 
+    
+    
+
+## List Bookings [/v1/booking/{?phoneNumber,accountId,consignmentId}]
+This service allows the client get a list of pickup booking.
+
++ Parameters
+    + phoneNumber (required, string)
+    + accountId (required,string) 
+    + consignmentId (required,string)
+
+    
+### List Bookings [GET]
+
++ Response 200 (application/json)
+    + Attributes (BookingResponse)    
+    
+   
+
+## Late Delivery Claim [/v1/latedeliveryclaim]
+Object containing the options allowed when a customer has been carded
+  
+### Late Delivery Claim [POST]
+Allow client to create a a new delivery claim
+
++ Request (application/json)
+    + Attributes (LateDeliveryClaim)
+    
++ Response 200 (application/json) 
+    + Attributes (Response) 
+    
+    
+    
+    
+    
+    
+    
