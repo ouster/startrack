@@ -99,9 +99,6 @@ HOST: http://startrack.com.au/shipping
 - claimItem: (ClaimItem)
 - contactDetail: (ContactDetails)
 
-### Booking1
-- favouriteName: string
-
 ### Booking
 - favouriteName: string
 - defaultBooking: boolean
@@ -157,6 +154,25 @@ HOST: http://startrack.com.au/shipping
 - TailgeteRequired: boolean
 - PackagingRequired: boolean
 - SpecialHandlingRequired: boolean
+
+
+### DeliveryDetails
+- ReceiverSuburb: string
+- ReceiverState: string
+- ReceiverPostCode: string
+- SenderSuburb: string
+- SenderPostCode: string
+- SenderState: string
+- serviceCode: string
+- accountNumber: string
+- weight: decimal
+- volume: decimal
+- includeFuelSurcharge: boolean
+- includeSecuritySurcharge: boolean
+- includeRiskWarranty: bool
+- riskWarrantyValue: decimal
+- arrivalDate: string
+- despatchDate: string
 
 
 ## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
@@ -248,6 +264,19 @@ Allow client to create a new delivery claim
 Allow client to create a new booking
 
 ### Booking [POST]
+
++ Request (application/json)
+    + Attributes (Booking)
+    
++ Response 200 (application/json) 
+    + Attributes (Response)
+    
+    
+## Booking [/v1/deliverytimeestimate]
+Allow client to get estimated delivery time
+
+### Delivery Time Estimate [POST]
+note too many parameters to use GET
 
 + Request (application/json)
     + Attributes (Booking)
