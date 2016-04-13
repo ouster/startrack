@@ -99,7 +99,64 @@ HOST: http://startrack.com.au/shipping
 - claimItem: (ClaimItem)
 - contactDetail: (ContactDetails)
 
+### Booking1
+- favouriteName: string
 
+### Booking
+- favouriteName: string
+- defaultBooking: boolean
+- controlledReturn: boolean
+- bookingDetails: (BookingDetails)
+- pickupDetails: (PickupDetails)
+- freightDetails: (FreightDetails)
+
+### BookingDetails
+- callerPhoneNbr: string
+- accountId: string
+- consignment: string
+- contactName: string
+- companyName: string
+- emailAddress: string
+- serviceType: Collection of string
+- serviceTypeDefault: string
+- dangerousGoods: boolean
+
+### PickupDetails
+- PhoneNbr: string
+- CompanyName: string
+- Address1: string
+- Address2: string
+- Suburb: string
+- State: string
+- Postcode: string
+- Contact: string
+- PointOfCollection: string
+- PrivateAddress: boolean
+- PickupDate: string
+- ReadyTime: string
+- CloseTime: string
+- ConsignmentNoteRequired: boolean
+- UNNumber: string
+- PickupClass: string
+- SpecialInstructions: string
+- SenderLabelPrint: boolean
+- PrintProductCodes: boolean
+- SendPDFLabels: boolean
+- DepotLabelPrint: boolean
+
+### FreightDetails
+- ItemID: integer
+- ItemDescription: string
+- Comment: string
+- Quantity: integer
+- Weight: integer
+- Length: decimal
+- Width: decimal
+- Height: decimal
+- HeaviestItemWeight: integer
+- TailgeteRequired: boolean
+- PackagingRequired: boolean
+- SpecialHandlingRequired: boolean
 
 
 ## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
@@ -147,10 +204,9 @@ Object containing the options allowed when a client has been carded
 
     
 ## Card Left [/v1/cardleft]
-Object containing the options allowed when a customer has been carded
+Allow client to create a action based on card left options
 
 ### Card Left [POST]
-Allow client to create a action based on card left options
 
 + Request (application/json)
     + Attributes (CardLeft)   
@@ -177,13 +233,24 @@ This service allows the client get a list of pickup booking.
    
 
 ## Late Delivery Claim [/v1/latedeliveryclaim]
-Object containing the options allowed when a customer has been carded
-  
+
 ### Late Delivery Claim [POST]
-Allow client to create a a new delivery claim
+Allow client to create a new delivery claim
 
 + Request (application/json)
     + Attributes (LateDeliveryClaim)
+    
++ Response 200 (application/json) 
+    + Attributes (Response)
+    
+
+## Booking [/v1/booking]
+Allow client to create a new booking
+
+### Booking [POST]
+
++ Request (application/json)
+    + Attributes (Booking)
     
 + Response 200 (application/json) 
     + Attributes (Response)
