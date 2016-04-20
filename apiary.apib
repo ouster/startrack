@@ -166,7 +166,7 @@ HOST: http://startrack.com.au/shipping
 - SenderPostCode: string
 - SenderState: string
 
-### DeliveryDetails
+### DeliveryTimeEstimateDetails
 - receiverDeliveryDetails: (ReceiverDeliveryDetails)
 - senderDeliveryDetails: (SenderDeliveryDetails)
 - serviceCode: string
@@ -180,6 +180,9 @@ HOST: http://startrack.com.au/shipping
 - arrivalDate: string
 - despatchDate: string
 
+### DeliveryTimeEstimate
+- eta: datetime
+- etd: datetime
 
 ## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
 A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
@@ -211,7 +214,7 @@ A comma separated list of `id` can be passed as parameter to fetch a list of Con
 
 <!-- Note there is no GET /v1/consignment/{id} -->
 
-## Card Left Options [/v1/cardleftoptions/id]
+## Card Left Options [/v1/cardleftoptions{?barCode,consignmentId]
 Object containing the options allowed when a client has been carded
 
 + Parameters
@@ -285,7 +288,7 @@ Allow client to get estimated delivery time
 note too many parameters to use GET
 
 + Request (application/json)
-    + Attributes (Booking)
+    + Attributes (DeliveryTimeEstimateDetails)
     
 + Response 200 (application/json) 
-    + Attributes (Response)
+    + Attributes (DeliveryTimeEstimate)
