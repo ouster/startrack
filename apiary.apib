@@ -256,17 +256,26 @@ This service allows the client get a list of pickup booking.
     + Attributes (BookingResponse)    
     
    
-## WebBooking [/v1/webbooking]
-This service allows the client post a booking.
+## CardLeftCheck [/v1/cardleftcheck{?consignment,barcode,receiverName,receiverAddress1,receiverAddress2,receiverSuburb,receiverState,receiverPostcode,isRedelivery,isRedirect}]
+This service allows the check the cardleft
 
 + Parameters
-
+    + consignment (required, string)
+    + barcode (required,string) 
+    + receiverName (required,string)
+    + receiverAddress1 (required,string)
+    + receiverAddress2 (required,string)
+    + receiverSuburb (required,string)
+    + receiverState (required,string)
+    + receiverPostcode (required,string)
+    + isRedelivery (required,bool)
+    + isRedirect (required,bool)
 
     
-### WebBooking [POST]
+### CardLeftCheck [GET]
 
 + Response 200 (application/json)
-    + Attributes (BookingResponse)  
+    + Attributes (Response)  
     
 
 ## Late Delivery Claim [/v1/latedeliveryclaim]
