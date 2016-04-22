@@ -184,6 +184,20 @@ HOST: http://startrack.com.au/shipping
 - eta: datetime
 - etd: datetime
 
+### CardLeftCheck
+- consignment: string
+- barcode: string
+- receiverName: string
+- receiverAddress1: string
+- receiverAddress2: string
+- receiverSuburb: string
+- receiverState: string
+- receiverPostcode: string
+- isRedelivery: string
+- isRedirect: bool
+
+-
+
 ## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
 A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
 
@@ -256,26 +270,7 @@ This service allows the client get a list of pickup booking.
     + Attributes (BookingResponse)    
     
    
-## CardLeftCheck [/v1/cardleftcheck{?consignment,barcode,receiverName,receiverAddress1,receiverAddress2,receiverSuburb,receiverState,receiverPostcode,isRedelivery,isRedirect}]
-This service allows the check the cardleft
 
-+ Parameters
-    + consignment (required, string)
-    + barcode (required,string) 
-    + receiverName (required,string)
-    + receiverAddress1 (required,string)
-    + receiverAddress2 (required,string)
-    + receiverSuburb (required,string)
-    + receiverState (required,string)
-    + receiverPostcode (required,string)
-    + isRedelivery (required,bool)
-    + isRedirect (required,bool)
-
-    
-### CardLeftCheck [GET]
-
-+ Response 200 (application/json)
-    + Attributes (Response)  
     
 
 ## Late Delivery Claim [/v1/latedeliveryclaim]
@@ -313,3 +308,15 @@ note too many parameters to use GET
     
 + Response 200 (application/json) 
     + Attributes (DeliveryTimeEstimate)
+    
+    
+## CardLeftCheck [/v1/cardleftcheck]
+This service allows the check the cardleft
+
+### CardLeftCheck [POST]
+
++ Request (application/json)
+    + Attributes (CardLeftCheck)
+    
++ Response 200 (application/json) 
+    + Attributes (Response)
