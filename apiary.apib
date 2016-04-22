@@ -196,7 +196,19 @@ HOST: http://startrack.com.au/shipping
 - isRedelivery: string
 - isRedirect: bool
 
--
+### CardLeftDepot
+- responseType: string
+- responseCode: integer
+- responseMessage: string
+- branchName: string
+- collectionHour: string
+- address1: string
+- address2: string
+- suburb: string
+- postcode: string
+- state: string
+- instruction: string
+- longitudeLatitude: string
 
 ## Consignments Collection [/v1/consignments/{id1%2cid2%2cidn}/{?serviceType}]
 A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
@@ -320,3 +332,19 @@ This service allows the check the cardleft
     
 + Response 200 (application/json) 
     + Attributes (Response)
+    
+    
+## CardLeft Depots [/v1/cardleftdepot/{?consignment,barcode,contactPhone,conttactEmail,requestedName}]
+This service allows the client get a list of cardleft depot.
+
++ Parameters
+    + consignment (required, string)
+    + barcode (required,string) 
+    + contactPhone (required,string)
+    + conttactEmail (required,string)
+    + requestedName (required,string)
+    
+### CardLeft Depots [GET]
+
++ Response 200 (application/json)
+    + Attributes (CardLeftDepot)
