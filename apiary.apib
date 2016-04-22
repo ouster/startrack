@@ -214,11 +214,11 @@ A comma separated list of `id` can be passed as parameter to fetch a list of Con
 
 <!-- Note there is no GET /v1/consignment/{id} -->
 
-## Card Left Options [/v1/cardleftoptions{?barCode,consignmentId]
+## Card Left Options [/v1/cardleftoptions{?barCode,consignmentId}]
 Object containing the options allowed when a client has been carded
 
 + Parameters
-    + id (required, string, `barcode or consignment id`)
+    + barcode or consignment id
 
 
 ### Card Left Options [GET]
@@ -256,6 +256,18 @@ This service allows the client get a list of pickup booking.
     + Attributes (BookingResponse)    
     
    
+## WebBooking [/v1/webbooking]
+This service allows the client post a booking.
+
++ Parameters
+
+
+    
+### WebBooking [POST]
+
++ Response 200 (application/json)
+    + Attributes (BookingResponse)  
+    
 
 ## Late Delivery Claim [/v1/latedeliveryclaim]
 
