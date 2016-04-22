@@ -281,9 +281,6 @@ This service allows the client get a list of pickup booking.
 + Response 200 (application/json)
     + Attributes (BookingResponse)    
     
-   
-
-    
 
 ## Late Delivery Claim [/v1/latedeliveryclaim]
 
@@ -308,6 +305,7 @@ Allow client to create a new booking
 + Response 200 (application/json) 
     + Attributes (Response)
     
+
     
 ## Booking [/v1/deliverytimeestimate]
 Allow client to get estimated delivery time
@@ -321,6 +319,7 @@ note too many parameters to use GET
 + Response 200 (application/json) 
     + Attributes (DeliveryTimeEstimate)
     
+
     
 ## CardLeftCheck [/v1/cardleftcheck]
 This service allows the check the cardleft
@@ -333,6 +332,7 @@ This service allows the check the cardleft
 + Response 200 (application/json) 
     + Attributes (Response)
     
+
     
 ## CardLeft Depots [/v1/cardleftdepot/{?consignment,barcode,contactPhone,conttactEmail,requestedName}]
 This service allows the client get a list of cardleft depot.
@@ -344,6 +344,7 @@ This service allows the client get a list of cardleft depot.
     + conttactEmail (required,string)
     + requestedName (required,string)
     
+
 ### CardLeft Depots [GET]
 
 + Response 200 (application/json)
