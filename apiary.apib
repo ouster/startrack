@@ -31,9 +31,6 @@ HOST: http://api.startrack.com.au
 - lineItems: array(object)
 
 ### CardLeftOptions
-- responseType: string
-- responseCode: string
-- responseMessage: string
 - accountName: string
 - allowRedeliver: boolean
 - allowRedirect: boolean
@@ -76,14 +73,11 @@ HOST: http://api.startrack.com.au
 - wantsTo: (WantsTo)
 
 ### Response
-- responseType: string
-- responseCode: integer
-- responseMessage: string
+- type: string
+- code: integer
+- message: string
 
 ### BookingResponse
-- responseType: string
-- responseCode: string
-- responseMessage: string
 - favouriteName: string
 - bookingDetails: string
 - pickupDetails: string
@@ -151,7 +145,7 @@ HOST: http://api.startrack.com.au
 - Width: decimal
 - Height: decimal
 - HeaviestItemWeight: integer
-- TailgeteRequired: boolean
+- TailgateRequired: boolean
 - PackagingRequired: boolean
 - SpecialHandlingRequired: boolean
 
@@ -193,15 +187,12 @@ HOST: http://api.startrack.com.au
 - receiverSuburb: string
 - receiverState: string
 - receiverPostcode: string
-- isRedelivery: string
-- isRedirect: bool
+- redelivery: bool
+- redirect: bool
 
 ### CardLeftDepot
-- responseType: string
-- responseCode: integer
-- responseMessage: string
 - branchName: string
-- collectionHour: string
+- collectionHours: string
 - address1: string
 - address2: string
 - suburb: string
@@ -322,15 +313,15 @@ This service allows the check the cardleft
     
 
     
-## CardLeft Depots [/v1/cardleftdepot/{?consignment,barcode,contactPhone,conttactEmail,requestedName}]
+## CardLeft Depots [/v1/cardleftdepots/{?consignment,barcode,contactPhone,conttactEmail,requestedName}]
 This service allows the client get a list of cardleft depot.
 
 + Parameters
     + consignment (required, string)
     + barcode (required,string) 
     + contactPhone (required,string)
-    + conttactEmail (required,string)
-    + requestedName (required,string)
+    + contactEmail (required,string)
+    + requestedByName (required,string)
     
 
 ### CardLeft Depots [GET]
