@@ -151,11 +151,11 @@ HOST: http://api.startrack.com.au
 
 ### BookingResponse
 - favouriteName: string
-- bookingDetails: string
-- pickupDetails: string
+- bookingDetails: (BookingDetails)
+- pickupDetails: (PickupDetails)
 - instructionDetails: string
 - freightItems: object
-- freightDetails: string
+- freightDetails: (FreightDetails)
 
 ### ClaimItem
 - name: string
@@ -297,7 +297,7 @@ A comma separated list of `id` can be passed as parameter to fetch a list of Con
 ### List Consignments by reference ids [GET]
 
 + Response 200 (application/json)
-    + Attributes (array[Consignment])
+    + Attributes (Consignment)
 
 <!-- Note there is no GET /v1/consignment/{id} -->
 
