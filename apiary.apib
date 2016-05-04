@@ -24,11 +24,83 @@ HOST: http://api.startrack.com.au
 - receiver: string
 - sender: string
 - references: string
-- trackingEvents: array(object)
-- images: array(object)
+- trackingEvents: (TrackingEvents)
 - containsDangerousGoods: boolean
 - dangerousGoods: string
-- lineItems: array(object)
+- lineItems: (LineItems)
+
+### TrackingEvents
+- scanMode: string
+- transitState: string
+- quantityDelivered: string
+- quantityOnHand: string
+- scanningDepot: string
+- signatoryName: string
+- statusDescription: datetime
+- id: string
+- scanner: (Scanner)
+
+### Scanner
+- depotCode: string
+- id: string
+- type: string
+
+### LineItems
+- dangerouseGoods: (DangerouseGoods)
+- freightItems: (FreightItems)
+- references: (References)
+- uom: string
+- cube: decimal
+- interimDespatch: boolean
+- lineNumber: string
+- noOfLabels: string
+- pachagingType: string
+- printInternalLabels: boolean
+- printLabelNow: boolean
+- printSecondLabels: boolean
+- quantity: string
+- riskWarrantyLevel: string
+- unitType: string
+- weight: decimal
+
+### DangerouseGoods
+- interimDgPrinted: datetime
+- quantity: string
+- weight: decimal
+- lockSeq: string
+
+### FreightItems
+- id: string
+- statusHistory: (StatusHistory)
+- incidents: string
+- cost: string
+- currentTransitState: string
+- etaDate: datetime
+- measuredCube: decimal
+- measuredWeight: decimal
+- riskWarrantyValue: string
+- sequenceNumber: string
+- status: string
+- lockSeq: string
+
+### StatusHistory
+- userStatusHistory: (UserStatusHistory)
+- dateTime: datetime
+- signatoryName: string
+- status: string
+- depot: string
+
+### UserStatusHistory
+- dateTime: datetime
+- status: string
+- user: string
+
+### References
+- name: string
+- value: string
+- type: string
+- printOnLabel: boolean
+- priority: int
 
 ### CardLeftOptions
 - accountName: string
@@ -212,7 +284,7 @@ A comma separated list of `id` can be passed as parameter to fetch a list of Con
 ### List Consignments by consignment ids [GET]
 
 + Response 200 (application/json)
-    + Attributes (array[Consignment])
+    + Attributes (Consignment)
   
 
 ## Consignments By Reference Collection [/v1/consignmentsbyreferenceid/{id1%2cid2%2cidn}]
