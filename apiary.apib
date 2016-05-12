@@ -23,11 +23,23 @@ HOST: http://api.startrack.com.au
 - smsNotifications: boolean
 - receiver: string
 - sender: string
-- references: string
+- references: (References)
 - trackingEvents: (TrackingEvents)
 - containsDangerousGoods: boolean
 - dangerousGoods: string
 - lineItems: (LineItems)
+
+### ConsignmentSummary
+- consignmentId: "Z100001"
+- consignmentStatus: string
+- consignmentType: string
+- serviceCode: string
+- despatchDate: `2016-01-01T00:00:00`
+- etaData: `2016-01-12T00:00:00`
+- lastStatusDateTime: `2016-01-12T00:00:00`
+- receiver: string
+- references: (References)
+- dangerousGoods: string
 
 ### TrackingEvents
 - scanMode: string
@@ -291,6 +303,23 @@ A comma separated list of `id` can be passed as parameter to fetch a list of Con
 
 + Response 200 (application/json)
     + Attributes (Consignment)
+    
+
+    
+## Consignments Summary [/v1/consignmentsummary{?consignmentId,referenceId,searchType}]
+
+
++ Parameters
+    + consignmentId (required, string)
+    + referenceId (required,string) 
+    + searchType (required,integer)
+
+    
+### List Consignments by reference ids [GET]
+
++ Response 200 (application/json)
+    + Attributes (ConsignmentSummary)
+    
 
 <!-- Note there is no GET /v1/consignment/{id} -->
 
