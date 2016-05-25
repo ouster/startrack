@@ -125,12 +125,30 @@ HOST: http://api.startrack.com.au
 - contactDetail: (ContactDetails)
 
 ### Booking
-- favouriteName: string
 - defaultBooking: boolean
-- controlledReturn: boolean
-- bookingDetails: (BookingDetails)
-- pickupDetails: (PickupDetails)
-- freightDetails: (FreightDetails)
+- bookingDetails: (RequestBookingDetails)
+- pickupDetails: (RequestPickupDetails)
+- freightDetails: (RequestFreightDetails)
+
+### RequestBookingDetails
+- callerPhoneNbr: string
+- accountId: string
+- consignment: string
+- serviceType: Collection of string
+- dangerousGoods: boolean
+
+### RequestPickupDetails
+- Address1: string
+- Address2: string
+- Suburb: string
+- State: string
+- Postcode: string
+- PointOfCollection: string
+- PrivateAddress: boolean
+- PickupDate: string
+- ReadyTime: string
+- CloseTime: string
+- SpecialInstructions: string
 
 ### BookingDetails
 - callerPhoneNbr: string
@@ -160,6 +178,18 @@ HOST: http://api.startrack.com.au
 
 ### FreightDetails
 - ItemID: integer
+- ItemDescription: string
+- Quantity: integer
+- Weight: integer
+- Length: decimal
+- Width: decimal
+- Height: decimal
+- HeaviestItemWeight: integer
+- TailgateRequired: boolean
+- PackagingRequired: boolean
+- SpecialHandlingRequired: boolean
+
+### RequestFreightDetails
 - ItemDescription: string
 - Quantity: integer
 - Weight: integer
