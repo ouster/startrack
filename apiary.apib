@@ -8,19 +8,6 @@ HOST: http://api.startrack.com.au
 ### Consignment
 - consignmentId: "Z100001"
 - consignmentStatus: string
-- consignmentType: string
-- serviceCode: string
-- despatchDate: `2016-01-01T00:00:00`
-- etaData: `2016-01-12T00:00:00`
-- lastStatusDateTime: `2016-01-12T00:00:00`
-- specialInstructions: string
-- goodsDescription: string
-- despatchDepot: string
-- emailNotifications: boolean
-- smsNotifications: boolean
-- receiver: (Receiver)
-- sender: string
-- references: (References)
 - trackingEvents: (TrackingEvents)
 - lineItems: (LineItems)
 
@@ -39,7 +26,6 @@ HOST: http://api.startrack.com.au
 ### TrackingEvents
 - scanningDepot: string
 - statusDescription: datetime
-- id: string
 
 ### Scanner
 - depotCode: string
@@ -47,22 +33,8 @@ HOST: http://api.startrack.com.au
 - type: string
 
 ### LineItems
-- dangerouseGoods: (DangerouseGoods)
 - freightItems: (FreightItems)
-- references: (References)
-- uom: string
-- cube: decimal
-- interimDespatch: boolean
-- lineNumber: string
-- noOfLabels: string
-- pachagingType: string
-- printInternalLabels: boolean
-- printLabelNow: boolean
-- printSecondLabels: boolean
 - quantity: string
-- riskWarrantyLevel: string
-- unitType: string
-- weight: decimal
 
 ### DangerouseGoods
 - interimDgPrinted: datetime
@@ -72,12 +44,6 @@ HOST: http://api.startrack.com.au
 
 ### FreightItems
 - id: string
-- statusHistory: (StatusHistory)
-- incidents: string
-- currentTransitState: string
-- etaDate: datetime
-- sequenceNumber: string
-- status: string
 
 ### StatusHistory
 - userStatusHistory: (UserStatusHistory)
