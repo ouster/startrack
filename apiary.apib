@@ -96,13 +96,14 @@ HOST: http://api.startrack.com.au/shipping
 - redirect: boolean
 
 ### CardLeft 
-- consignment: string, required
+- consignment: string
 - barcode: string
 - contactPhone: string
 - receiverName: string
 - redeliveryDate: string
 - requestedByName: string
-- wantsTo: (WantsTo)
+- WantsToRedeliver: boolean
+- WantsToRedirect: boolean
 
 ### Response
 - type: string
