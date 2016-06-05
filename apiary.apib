@@ -10,7 +10,7 @@ HOST: http://api.startrack.com.au/shipping
 - consignmentStatus: string
 
 ### ConsignmentSummary
-- consignmentId: "Z100001"
+- consignmentId: string
 - consignmentStatus: string
 - consignmentType: string
 - serviceCode: string
@@ -19,7 +19,6 @@ HOST: http://api.startrack.com.au/shipping
 - lastStatusDateTime: `2016-01-12T00:00:00`
 - receiver: (Receiver)
 - references: (References)
-- dangerousGoods: string
 
 ### TrackingEvents
 - scanningDepot: string
@@ -81,12 +80,16 @@ HOST: http://api.startrack.com.au/shipping
 
 ### Receiver
 - name: string
-- companyname: string
-- address1: string
-- address2: string
-- suburb: string
-- state: string
-- postcode: integer
+- contactDetail: (ReceiverContactDetail)
+
+### ReceiverContactDetail
+- address(ReceiverAddress)
+
+### ReceiverAddress
+- AddressLines: Collection of string
+- Postcode: string
+- Suburb: string
+- State: string
 
 ### WantsTo
 - redeliver: boolean
