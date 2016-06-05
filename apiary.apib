@@ -214,15 +214,15 @@ HOST: http://api.startrack.com.au/shipping
 - SenderState: string
 
 ### DeliveryTimeEstimateDetails
+- serviceCode: string
+- arrivalDate: string
+- despatchDate: string
 - receiverSuburb: string
 - receiverState: string
 - receiverPostCode: string
 - SenderSuburb: string
 - SenderPostCode: string
 - SenderState: string
-- serviceCode: string
-- arrivalDate: string
-- despatchDate: string
 
 ### DeliveryTimeEstimate
 - eta: datetime
@@ -237,8 +237,8 @@ HOST: http://api.startrack.com.au/shipping
 - receiverSuburb: string
 - receiverState: string
 - receiverPostcode: string
-- redelivery: bool
-- redirect: bool
+- wantsToRedeliver: bool
+- wantsToRedirect: bool
 
 ### CardLeftDepot
 - branchName: string
@@ -365,14 +365,23 @@ note too many parameters to use GET
     
 
     
-## CardLeftCheck [/v1/cardleftcheck]
+## CardLeftCheck [/v1/cardleftcheck/{?consignment,barcode,receiverName,receiverAddress1,receiverAddress2,receiverSuburb,receiverState,receiverPostcode,wantsToRedeliver,wantsToRedirect}]
 This service allows the check the cardleft
 
-### CardLeftCheck [POST]
++ Parameters
+    + consignment (required, string)
+    + barcode (required,string) 
+    + receiverName (required,string)
+    + receiverAddress1 (required,string)
+    + receiverAddress2 (required,string)
+    + receiverSuburb (required,string)
+    + receiverState (required,string)
+    + receiverPostcode (required,string)
+    + wantsToRedeliver (required,boolean)
+    + wantsToRedirect (required,boolean)
 
-+ Request (application/json)
-    + Attributes (CardLeftCheck)
-    
+### CardLeftCheck [GET]
+
 + Response 200 (application/json) 
     + Attributes (Response)
     
