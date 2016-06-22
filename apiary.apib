@@ -138,15 +138,26 @@ HOST: http://api.startrack.com.au/shipping
 - Consignment: string
 - ServiceType: string
 - DangerousGoods: boolean
+- CallerCompanyName: string
+- CallerCompanyEmail: string
+- PickupPhone: string
+- PickupAddress1: string
+- PickupAddress2: string
 - PickupSuburb: string
+- PickupCompanyName: string
+- PickupName: string
 - PickupState: string
+- SavePickupDetails: boolean
 - PickupPostcode: string
 - PickupPointOfCollection: string
 - PickupPrivateAddress: boolean
 - PickupDate: string
 - PickupReadyTime: string
 - PickupCloseTime: string
+- PickupConsignmentNoteRequired: boolean
 - PickupSpecialInstructions: string
+- IsControlledReturn: boolean
+- IsBranchPrint: boolean
 - freightItems: (RequestFreightDetails)
 
 ### RequestBookingDetails
@@ -200,6 +211,7 @@ HOST: http://api.startrack.com.au/shipping
 
 ### RequestFreightDetails
 - Description: string
+- Comments: string
 - Quantity: string
 - Weight: string
 - Length: string
