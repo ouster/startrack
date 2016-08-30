@@ -30,15 +30,23 @@ HOST: http://api.startrack.com.au/shipping
 - consignmentStatus: string
 - consignmentType: string
 - serviceCode: string
-- despatchDate: `2016-01-01T00:00:00`
-- etaData: `2016-01-12T00:00:00`
-- lastStatusDateTime: `2016-01-12T00:00:00`
-- receiver: (Receiver)
+- DeliveryDepot: string
+- POD: string
+- DespatchDate: datetime
+- EtaDate: datetime
+- LastStatusDateTime: datetime
+- receiver: (ConsignmentReceiver)
 - references: (References)
+- trackingEvents: (TrackingEvents)
+- lineItem: (LineItems)
+- statusHistory: (UserStatusHistory)
+- QualityControl: string
 
 ### TrackingEvents
-- scanningDepot: string
-- statusDescription: datetime
+- Consignment: string
+- EventDateTime: string
+- ScanDepot: string
+- ScanDescription: datetime
 
 ### Scanner
 - depotCode: string
