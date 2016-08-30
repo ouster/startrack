@@ -90,6 +90,9 @@ HOST: http://api.startrack.com.au/shipping
 - allowRedirect: boolean
 - allowATL: boolean
 - allowDepotCollection: boolean
+- message: string
+- type: string
+- code: string
 
 ### Contact
 - phone: string
@@ -162,11 +165,26 @@ HOST: http://api.startrack.com.au/shipping
 - code: integer
 - message: string
 
+### PickupBookingResponse
+- ResponseCode: string
+- ResponseType: integer
+- ResponseMessage: string
+- BookingNumber: string
+
+### CardLeftResponse
+- ResponseType: string
+- ResponseCode: integer
+- ResponseMessage: string
+- EnquiryId: string
+
 ### BookingResponse
 - favouriteName: string
 - bookingDetails: (BookingDetails)
 - pickupDetails: (PickupDetails)
 - freightDetails: (FreightDetails)
+- ResponseCode: string
+- ResponseMessage: string
+- ResponseType: string
 
 ### ClaimItem
 - name: string
@@ -370,7 +388,7 @@ Object containing the options allowed when a client has been carded
 ### Card Left Options [GET]
 
 + Response 200 (application/json)
-    + Attributes (array[CardLeftOptions])
+    + Attributes (CardLeftOptions)
     
 
     
@@ -383,7 +401,7 @@ Allow client to create a action based on card left options
     + Attributes (CardLeft)   
             
 + Response 200 (application/json) 
-    + Attributes (Response) 
+    + Attributes (CardLeftResponse) 
     
     
 
@@ -411,7 +429,7 @@ Allow client to create a new booking
     + Attributes (Booking)
     
 + Response 200 (application/json) 
-    + Attributes (Response)
+    + Attributes (PickupBookingResponse)
     
 
     
