@@ -7,7 +7,23 @@ HOST: http://api.startrack.com.au/shipping
 
 ### Consignment
 - consignmentId: string
-- consignmentStatus: string
+- source: string
+- IsAaE: bool
+- ConsignmentStatus: string
+- ConsignmentType: string
+- ServiceCode: string
+- DespatchDate: datetime
+- EtaDate: datetime
+- PayerAccountNumber: string
+- PayerType: string
+- DespatchId: string
+- LastStatusDateTime: datetime
+- ConsignmentStatusTime: string
+- PodSignatoryName: string
+- PodSignatureImage: string
+- ContainsDangerousGoods: boolean
+- Receiver: (ConsignmentReceiver)
+- references: (References)
 
 ### ConsignmentSummary
 - consignmentId: string
@@ -82,14 +98,31 @@ HOST: http://api.startrack.com.au/shipping
 - name: string
 - contactDetail: (ReceiverContactDetail)
 
+### ConsignmentReceiver
+- ReceiverId: string
+- ShortName: string
+- Name: Collection of string
+- AccountNumber: string
+- ContactDetails: string
+- contactDetail: (ReceiverContactDetailV2)
+
+### ReceiverContactDetailV2
+- Email: string
+- Phone: string
+- Mobile: string
+- Fax: string
+- address(ReceiverAddress)
+
 ### ReceiverContactDetail
 - address(ReceiverAddress)
 
 ### ReceiverAddress
+- AddressId: string
 - AddressLines: Collection of string
-- Postcode: string
 - Suburb: string
 - State: string
+- Postcode: string
+- Country: string
 
 ### WantsTo
 - redeliver: boolean
