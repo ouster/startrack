@@ -165,6 +165,11 @@ HOST: http://api.startrack.com.au/shipping
 - code: integer
 - message: string
 
+### CardLeftCheckReponse
+- ResponseCode: string
+- ResponseType: integer
+- ResponseMessage: string
+
 ### PickupBookingResponse
 - ResponseCode: string
 - ResponseType: integer
@@ -333,6 +338,12 @@ HOST: http://api.startrack.com.au/shipping
 - instruction: string
 - longitudeLatitude: string
 
+### CardLeftDepotResponse
+- ResponseType: string
+- ResponseCode: integer
+- ResponseMessage: string
+- EnquiryId: string
+
 ## Consignments [/v1/consignments/{id1%2cid2%2cidn}]
 A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
 
@@ -465,7 +476,7 @@ This service allows the check the cardleft
 ### CardLeftCheck [GET]
 
 + Response 200 (application/json) 
-    + Attributes (Response)
+    + Attributes (CardLeftCheckReponse)
     
 
     
@@ -483,4 +494,4 @@ This service allows the client get a list of cardleft depot.
 ### CardLeft Depots [GET]
 
 + Response 200 (application/json)
-    + Attributes (CardLeftDepot)
+    + Attributes (CardLeftDepotResponse)
