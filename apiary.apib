@@ -345,6 +345,23 @@ HOST: http://api.startrack.com.au/shipping
 - ResponseMessage: string
 - EnquiryId: string
 
+### Location
+- Suburb: string
+- State: string
+- Postcode: string
+- DeliveryWindow: bool
+- DepotCode: string
+- id: string
+- desc: string
+- additional: (LocationAdditional)
+
+### LocationAdditional
+- suburb: string
+- state: string
+- postcode: string
+- deliveryWindow: string
+- depotCode: string
+
 ## Consignments [/v1/consignments/{?ids}]
 A comma separated list of `id` can be passed as parameter to fetch a list of Consignments.
 
@@ -479,7 +496,6 @@ This service allows the check the cardleft
     + Attributes (CardLeftCheckReponse)
     
 
-    
 ## CardLeft Depots [/v1/cardleftdepots/{?consignment,barcode,contactPhone,conttactEmail,requestedName}]
 This service allows the client get a list of cardleft depot.
 
@@ -495,3 +511,17 @@ This service allows the client get a list of cardleft depot.
 
 + Response 200 (application/json)
     + Attributes (CardLeftDepotResponse)
+
+
+## Search Location [/v1/locations/{?kw}]
+
+
++ Parameters
+    + kw (required, string)
+    
+
+    
+### Search Location [GET]
+
++ Response 200 (application/json)
+    + Attributes (Location)
